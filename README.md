@@ -6,11 +6,15 @@ Numerical exploration of the Dicke model with cavity photon loss: finite-system 
 
 With $\hbar=1$, $N$ two-level emitters in the collective spin sector $j=N/2$ interact with one cavity mode:
 
-$$H=\omega a^\dagger a+\omega_0J_z+\frac{\lambda}{\sqrt N}(a+a^\dagger)(J_++J_-).$$
+$$
+H=\omega a^\dagger a+\omega_0J_z+\frac{\lambda}{\sqrt N}(a+a^\dagger)(J_++J_-).
+$$
 
 The counter-rotating terms are retained. Cavity loss is described by
 
-$$\dot\rho=-i[H,\rho]+L\rho L^\dagger-\tfrac12\{L^\dagger L,\rho\},\qquad L=\sqrt\kappa\,a.$$
+$$
+\dot\rho=-i[H,\rho]+L\rho L^\dagger-\tfrac12\{L^\dagger L,\rho\},\qquad L=\sqrt\kappa\,a.
+$$
 
 Here $\kappa$ is the photon-number decay rate; the field amplitude decays at $\kappa/2$. There is no additional pump, atomic decay, or dephasing in this model. Frequencies, coupling, and loss are expressed in consistent frequency units, with time in the corresponding inverse units.
 
@@ -62,21 +66,30 @@ curves = barrer_lambda_campo_medio(np.linspace(0.05, 1.0, 200), kappa=0.1)
 
 Define $\langle a\rangle/\sqrt N=u+iv$, and $(x,y,z)=\langle(J_x,J_y,J_z)\rangle/N$. Factorizing spin-field products gives
 
-$$\dot u=-\frac\kappa2u+\omega v,\qquad
-\dot v=-\omega u-\frac\kappa2v-2\lambda x,$$
-$$\dot x=-\omega_0y,\qquad
+$$
+\dot u=-\frac\kappa2u+\omega v,\qquad
+\dot v=-\omega u-\frac\kappa2v-2\lambda x,
+$$
+
+$$
+\dot x=-\omega_0y,\qquad
 \dot y=\omega_0x-4\lambda uz,\qquad
-\dot z=4\lambda uy.$$
+\dot z=4\lambda uy.
+$$
 
 These mean-field equations conserve $r=\sqrt{x^2+y^2+z^2}$. The default is $r=1/2$; smaller nonzero spin lengths are supported. For positive frequencies,
 
-$$\lambda_c=\sqrt{\frac{\omega_0[\omega^2+(\kappa/2)^2]}{8r\omega}}.$$
+$$
+\lambda_c=\sqrt{\frac{\omega_0[\omega^2+(\kappa/2)^2]}{8r\omega}}.
+$$
 
 The code evaluates the lower normal, inverted normal, and (when present) two symmetry-related superradiant stationary points. The `auto` option selects the lower normal point below the threshold and a superradiant branch above it.
 
 Linearizing around a stationary point gives a five-variable Jacobian. Restricting spin perturbations to the tangent plane at fixed spin length leaves four independent variables. The reduced matrix has four poles $s$, with perturbations proportional to $e^{st}$:
 
-$$s=-\gamma\pm i\Omega.$$
+$$
+s=-\gamma\pm i\Omega.
+$$
 
 For two distinct oscillatory conjugate pairs, the lower and higher positive frequencies define the local LP and UP labels. Negative real parts imply decay; positive real parts imply instability. The notebook plots frequencies and damping versus $\lambda$ and $\kappa$, and compares nonlinear trajectories with small-perturbation evolution.
 
